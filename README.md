@@ -117,8 +117,8 @@ The application features intelligent Voice Activity Detection (VAD) that natural
 │  │  Deepgram   │   │    Groq     │        │  ElevenLabs │       │
 │  │   (STT)     │   │   (LLM)     │        │   (TTS)     │       │
 │  │             │   │             │        │             │       │
-│  │ Real-time   │   │ Llama 3.3  │        │ Voice       │        │
-│  │ Streaming   │   │   70B      │        │ Synthesis   │        │
+│  │ Real-time   │   │ Llama 3.3   │        │ Voice       │       │
+│  │ Streaming   │   │   70B       │        │ Synthesis   │       │
 │  └─────────────┘   └─────────────┘        └─────────────┘       │
 │         │                  │                      │             │
 │         ▼                  ▼                      ▼             │
