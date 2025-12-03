@@ -91,40 +91,40 @@ The application features intelligent Voice Activity Detection (VAD) that natural
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         Frontend (Next.js)                       │
+│                         Frontend (Next.js)                      │
 │  ┌─────────────┐  ┌──────────────┐  ┌────────────────────────┐  │
 │  │   Silero    │  │    React     │  │   Audio Playback       │  │
 │  │    VAD      │──│  Components  │──│   (Web Audio API)      │  │
 │  │  (ONNX)     │  │              │  │                        │  │
 │  └──────┬──────┘  └──────────────┘  └────────────────────────┘  │
-│         │                                                        │
-│         │ PCM Audio (Int16)                                      │
-│         ▼                                                        │
+│         │                                                       │
+│         │ PCM Audio (Int16)                                     │
+│         ▼                                                       │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │                    WebSocket Connection                      ││
+│  │                    WebSocket Connection                      │
 │  └─────────────────────────────────────────────────────────────┘│
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                       Backend (FastAPI)                          │
+│                       Backend (FastAPI)                         │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │                    WebSocket Handler                         ││
+│  │                    WebSocket Handler                         │
 │  └──────┬──────────────────┬──────────────────────┬────────────┘│
-│         │                  │                      │              │
-│         ▼                  ▼                      ▼              │
+│         │                  │                      │             │
+│         ▼                  ▼                      ▼             │
 │  ┌─────────────┐   ┌─────────────┐        ┌─────────────┐       │
 │  │  Deepgram   │   │    Groq     │        │  ElevenLabs │       │
 │  │   (STT)     │   │   (LLM)     │        │   (TTS)     │       │
 │  │             │   │             │        │             │       │
-│  │ Real-time   │   │ Llama 3.3  │        │ Voice       │       │
-│  │ Streaming   │   │   70B      │        │ Synthesis   │       │
+│  │ Real-time   │   │ Llama 3.3  │        │ Voice       │        │
+│  │ Streaming   │   │   70B      │        │ Synthesis   │        │
 │  └─────────────┘   └─────────────┘        └─────────────┘       │
-│         │                  │                      │              │
-│         ▼                  ▼                      ▼              │
+│         │                  │                      │             │
+│         ▼                  ▼                      ▼             │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │                   Session Manager                            ││
-│  │          (Conversation History & State)                      ││
+│  │                   Session Manager                            │
+│  │          (Conversation History & State)                      │
 │  └─────────────────────────────────────────────────────────────┘│
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -322,7 +322,8 @@ MediVoice/
 │   │   └── lib/
 │   │       ├── constants.ts             # App constants
 │   │       └── utils.ts                 # Utilities
-│   ├── public/                          # VAD model files
+│   ├── scripts/
+│   │   └── copy-vad-files.js            # Postinstall script for VAD files
 │   └── package.json
 │
 ├── backend/
@@ -342,9 +343,11 @@ MediVoice/
 │   └── .env
 │
 ├── assets/
-│   ├── home.png                         # Screenshot
-│   └── summary.png                      # Screenshot
+│   ├── logo.svg                         # MediVoice logo
+│   ├── home.png                         # Home screen screenshot
+│   └── summary.png                      # Summary screen screenshot
 │
+├── .gitignore                           # Git ignore rules
 └── README.md
 ```
 
