@@ -392,6 +392,3 @@ This project is licensed under the MIT License.
   <strong>Built with modern AI technologies for accessible healthcare</strong>
 </p>
 
-<p align="center">
-  <sub>Powered by Deepgram, Groq, and ElevenLabs</sub>
-</p>
