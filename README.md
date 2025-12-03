@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/MediVoice-AI%20Medical%20Assistant-06b6d4?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNC4zMTggNi4zMThhNC41IDQuNSAwIDAgMCAwIDYuMzY0TDEyIDIwLjM2NGw3LjY4Mi03LjY4MmE0LjUgNC41IDAgMCAwLTYuMzY0LTYuMzY0TDEyIDcuNjM2bC0xLjMxOC0xLjMxOGE0LjUgNC41IDAgMCAwLTYuMzY0IDB6Ii8+PC9zdmc+" alt="MediVoice">
+  <img src="assets/logo.svg" alt="MediVoice Logo" width="120" height="120">
 </p>
 
 <h1 align="center">MediVoice</h1>
@@ -91,40 +91,40 @@ The application features intelligent Voice Activity Detection (VAD) that natural
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         Frontend (Next.js)                      │
+│                         Frontend (Next.js)                       │
 │  ┌─────────────┐  ┌──────────────┐  ┌────────────────────────┐  │
 │  │   Silero    │  │    React     │  │   Audio Playback       │  │
 │  │    VAD      │──│  Components  │──│   (Web Audio API)      │  │
 │  │  (ONNX)     │  │              │  │                        │  │
 │  └──────┬──────┘  └──────────────┘  └────────────────────────┘  │
-│         │                                                       │
-│         │ PCM Audio (Int16)                                     │
-│         ▼                                                       │
+│         │                                                        │
+│         │ PCM Audio (Int16)                                      │
+│         ▼                                                        │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │                    WebSocket Connection                      │
+│  │                    WebSocket Connection                      ││
 │  └─────────────────────────────────────────────────────────────┘│
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                       Backend (FastAPI)                         │
+│                       Backend (FastAPI)                          │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │                    WebSocket Handler                         │
+│  │                    WebSocket Handler                         ││
 │  └──────┬──────────────────┬──────────────────────┬────────────┘│
-│         │                  │                      │             │
-│         ▼                  ▼                      ▼             │
+│         │                  │                      │              │
+│         ▼                  ▼                      ▼              │
 │  ┌─────────────┐   ┌─────────────┐        ┌─────────────┐       │
 │  │  Deepgram   │   │    Groq     │        │  ElevenLabs │       │
 │  │   (STT)     │   │   (LLM)     │        │   (TTS)     │       │
 │  │             │   │             │        │             │       │
-│  │ Real-time   │   │ Llama 3.3  │        │ Voice       │        │
-│  │ Streaming   │   │   70B      │        │ Synthesis   │        │
+│  │ Real-time   │   │ Llama 3.3  │        │ Voice       │       │
+│  │ Streaming   │   │   70B      │        │ Synthesis   │       │
 │  └─────────────┘   └─────────────┘        └─────────────┘       │
-│         │                  │                      │             │
-│         ▼                  ▼                      ▼             │
+│         │                  │                      │              │
+│         ▼                  ▼                      ▼              │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │                   Session Manager                            │
-│  │          (Conversation History & State)                      │
+│  │                   Session Manager                            ││
+│  │          (Conversation History & State)                      ││
 │  └─────────────────────────────────────────────────────────────┘│
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -192,9 +192,11 @@ FRONTEND_URL=http://localhost:3000
 # Navigate to frontend directory
 cd frontend
 
-# Install dependencies
+# Install dependencies (VAD model files are copied automatically via postinstall)
 pnpm install
 ```
+
+> **Note:** The `pnpm install` command automatically copies required VAD and ONNX model files (~60MB) to the public directory.
 
 ---
 
